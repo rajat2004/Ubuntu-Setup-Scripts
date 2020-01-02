@@ -31,6 +31,14 @@ run_and_echo () {
     echo "$1" >> $2
 }
 
+# Rename .so files
+# Used for fixing conflicting libs with Anaconda
+rename_so () {
+    for f in "$1"*; do
+        mv -- "$f" "${f/.so/.so_renamed}"
+    done
+}
+
 
 if [[ -n $(echo $SHELL | grep "zsh") ]] ; then
     SHELLRC=~/.zshrc
@@ -192,13 +200,11 @@ if [[ -n $(echo $PATH | grep 'conda') ]] ; then
         cd $CONDA_PATH
         cd lib
 
-        for f in libfontconfig.so*; do
-            mv -- "$f" "${f/.so/.so_renamed}"
-        done
-
-        for f in libpangoft2-1.0.so*; do
-            mv -- "$f" "${f/.so/.so_renamed}"
-        done
+        rename_so libfontconfig.so
+        rename_so libpangoft2-1.0.so
+        rename_so libz.so
+        rename_so libfreetype.so
+        rename_so libharfbuzz.so
     )
 fi
 
