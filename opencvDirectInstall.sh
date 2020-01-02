@@ -119,6 +119,9 @@ if [[ ! -n $(cat $SHELLRC | grep '# ffmpeg-build-script') ]]; then
         if [[ ! -n $CIINSTALL ]]; then
             su - $USER
         fi
+
+        sudo sh -c 'echo "/opt/ffmpeg-build-script/workspace/lib" > /etc/ld.so.conf.d/ffmpeg.conf'
+        sudo ldconfig
     )
 fi
 
