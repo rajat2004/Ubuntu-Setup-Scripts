@@ -15,7 +15,9 @@ jobs:
 
     - name: xenial-opencv
       dist: xenial
-      script: CIINSTALL=yes ./opencvDirectInstall.sh
+      script: 
+      - CIINSTALL=yes ./opencvDirectInstall.sh
+      - python3 -c "import cv2; print(cv2.__version__); print(cv2.getBuildInformation());"
       python: 3.7
 
     - name: xenial-ml
@@ -36,6 +38,7 @@ jobs:
       - hash -r  # To reload env vars like PATH
       - conda info -a
       - CIINSTALL=yes ./opencvDirectInstall.sh
+      - python -c "import cv2; print(cv2.__version__); print(cv2.getBuildInformation());"
       python: 3.7
 
     - name: bionic-basic
@@ -50,7 +53,9 @@ jobs:
 
     - name: bionic-opencv
       dist: bionic
-      script: CIINSTALL=yes ./opencvDirectInstall.sh
+      script: 
+      - CIINSTALL=yes ./opencvDirectInstall.sh
+      - python3 -c "import cv2; print(cv2.__version__); print(cv2.getBuildInformation());"
       python: 3.7
 
     - name: bionic-ml
@@ -71,6 +76,7 @@ jobs:
       - hash -r  # To reload env vars like PATH
       - conda info -a
       - CIINSTALL=yes ./opencvDirectInstall.sh
+      - python -c "import cv2; print(cv2.__version__); print(cv2.getBuildInformation());"
       python: 3.7
 
 before_install:
