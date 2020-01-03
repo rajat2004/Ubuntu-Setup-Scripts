@@ -208,6 +208,7 @@ if [[ -n $(echo $PATH | grep 'conda') ]] ; then
         rename_so libz.so
         rename_so libfreetype.so
         rename_so libharfbuzz.so
+        rename_so libtbb.so
     )
 fi
 
