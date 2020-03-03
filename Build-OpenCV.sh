@@ -92,7 +92,8 @@ if [[ ! -n $(cat $SHELLRC | grep '# ffmpeg-build-script') ]]; then
     execute sudo chmod ugo+w /opt/ffmpeg-build-script
     {
         cd /opt/ffmpeg-build-script
-        git clone --quiet https://github.com/markus-perl/ffmpeg-build-script.git .
+        git clone --quiet https://github.com/rajat2004/ffmpeg-build-script.git .
+        git checkout ffmpeg-4.2.2
 
         # The nasm.us, tortall.net for yasm sites can cause problems. So use apt instead
         mkdir -p packages
