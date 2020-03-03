@@ -1,6 +1,6 @@
 language: python
 os: linux
-env: CIINSTALL=yes
+env: CIINSTALL=yes VERBOSE=yes
 
 jobs:
   include:
