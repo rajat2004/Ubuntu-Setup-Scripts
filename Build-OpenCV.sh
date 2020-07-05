@@ -67,7 +67,7 @@ execute sudo apt-get update
 execute sudo apt-get install build-essential curl g++ cmake cmake-curses-gui git pkg-config checkinstall gcc-8 g++-8 -y
 
 spatialPrint "Image manipulation libraries"
-execute sudo apt-get install libpng-dev libjpeg-dev libopenjp2-tools libtiff-dev zlib1g-dev libwebp-dev libopenexr-dev libgdal-dev -y
+execute sudo apt-get install libpng-dev libjpeg-dev libopenjp2-7-dev libtiff-dev zlib1g-dev libwebp-dev libopenexr-dev libgdal-dev -y
 
 if [[ $(which python) = *"conda"* || (-n $CIINSTALL) ]] ; then
     PIP="pip install"   # Even though we've forced usage of bash, if conda exists, it will derive it since the parent shell is zsh/ksh/....with conda in the path
